@@ -30,7 +30,6 @@ http.createServer((req, res) =>
         req.on('end', () =>
         {
             const parsedData = queryString.parse(data);
-            // console.log(parsedData);
             var movies = JSON.parse(fs.readFileSync('./movies.json', 'utf-8'));
             movies.push(parsedData);
             fs.writeFileSync('./movies.json', JSON.stringify(movies));
